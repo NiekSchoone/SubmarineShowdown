@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player.cs">
+    <Files>
+      <File FileName="..\..\..\..\Desktop\MultiplayerTutorial\Assets\Scripts\NetworkManager.cs" Line="88" Column="6" />
+      <File FileName="..\..\..\..\Desktop\MultiplayerTutorial\Assets\Scripts\Player.cs" Line="6" Column="5" />
+      <File FileName="Assets\Player.cs" Line="94" Column="3" />
+      <File FileName="Assets\NetworkManager.cs" Line="88" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

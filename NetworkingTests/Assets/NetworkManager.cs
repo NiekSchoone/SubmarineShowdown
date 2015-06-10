@@ -12,9 +12,9 @@ public class NetworkManager : MonoBehaviour
 
 	void Start()
 	{
-		MasterServer.ipAddress = "172.17.59.109";
+        MasterServer.ipAddress = "127.0.0.1";
 		MasterServer.port = 23466;
-		Network.natFacilitatorIP = "172.17.59.109";
+        Network.natFacilitatorIP = "127.0.0.1";
 		Network.natFacilitatorPort = 50005;
 	}
 

@@ -6,6 +6,7 @@ public class NetWorkmanagerCopyRocky : MonoBehaviour {
     private const string typeName = "NetworkingTest";
     private const string gameName = "NetworkingTestRoom";
     public string IPString = "IP Goes Here";
+    private bool amISpawningAPlayer = false;
 
     private HostData[] hostList;
 
@@ -87,10 +88,21 @@ public class NetWorkmanagerCopyRocky : MonoBehaviour {
         Network.Connect(hostData);
     }
 
-    private void SpawnPlayer()
+    public void SpawnPlayerDelay(float delay)
+    {
+        if (amISpawningAPlayer == false)
+        {
+            Invoke("SpawnPlayer", delay);
+            amISpawningAPlayer = true;
+        }
+        
+    }
+
+    public void SpawnPlayer()
     {
         Debug.Log("a player has spawned?");
         Network.Instantiate(playerPrefab, new Vector3(Random.Range(-7f,7f), 5f, 0f), Quaternion.identity, 0);
+        amISpawningAPlayer = false;
     }
 
     void OnPlayerDisconnected(NetworkPlayer player)

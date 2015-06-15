@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 	private Vector3 syncStartPosition = Vector3.zero;
 	private Vector3 syncEndPosition = Vector3.zero;
 
+	private SpriteRenderer sRenderer;
+
 	void Awake()
 	{
 		lastSynchronizationTime = Time.time;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
 
 		rb = GetComponent<Rigidbody2D>();
 		nView = GetComponent<NetworkView>();
+		sRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	void OnNetworkInstantiate(NetworkMessageInfo info)
@@ -105,7 +108,7 @@ public class Player : MonoBehaviour
 			}
 		}
 	}
-	
+
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		canJump = true;

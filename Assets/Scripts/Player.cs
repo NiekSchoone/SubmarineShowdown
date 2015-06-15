@@ -33,6 +33,14 @@ public class Player : MonoBehaviour
 		nView = GetComponent<NetworkView>();
 	}
 
+	void OnNetworkInstantiate(NetworkMessageInfo info)
+	{
+		if(nView.isMine)
+		{
+			Camera.main.GetComponent<SmoothCamera2D>().target = transform;
+		}
+	}
+
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{
 		Vector3 syncPosition = Vector3.zero;

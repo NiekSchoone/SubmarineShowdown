@@ -4,8 +4,9 @@ using System.Collections;
 public class NetworkManager : MonoBehaviour 
 {
 
-	private const string typeName = "TypeName";
-	private const string gameName = "RoomName";
+	private const string typeName = "NetworkingTest";
+	private const string gameName = "NetworkingTestRoom";
+	public string IPString = "IP Goes Here";
 	
 	private HostData[] hostList;
 	
@@ -21,21 +22,28 @@ public class NetworkManager : MonoBehaviour
 	
 	void OnGUI()
 	{
-		if(!Network.isClient && !Network.isServer)
+		if (!Network.isClient && !Network.isServer)
 		{
-			if(GUI.Button(new Rect(100,100, 150, 50), "Start Server"))
+			if (GUI.Button(new Rect(100, 100, 150, 50), "Start Server"))
 			{
+				MasterServer.ipAddress = "127.0.0.1";
+				Network.natFacilitatorIP = "127.0.0.1";
 				StartServer();
 			}
-			if(GUI.Button(new Rect(100,250,250,100), "Refresh hosts"))
+			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh hosts"))
 			{
+				MasterServer.ipAddress = IPString;
+				Network.natFacilitatorIP = IPString;
+				Debug.Log("masterIP" + MasterServer.ipAddress);
 				RefreshHostList();
 			}
-			if(hostList != null)
+			
+			IPString = GUI.TextField(new Rect(100, 220, 200, 20), IPString, 25);
+			if (hostList != null)
 			{
-				for(int i = 0; i < hostList.Length; i++)
+				for (int i = 0; i < hostList.Length; i++)
 				{
-					if(GUI.Button(new Rect(400,100 + (110 * i), 300, 100), hostList[i].gameName))
+					if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
 					{
 						JoinServer(hostList[i]);
 					}
@@ -69,7 +77,7 @@ public class NetworkManager : MonoBehaviour
 	
 	void OnMasterServerEvent(MasterServerEvent msEvent)
 	{
-		if(msEvent == MasterServerEvent.HostListReceived)
+		if (msEvent == MasterServerEvent.HostListReceived)
 		{
 			hostList = MasterServer.PollHostList();
 		}
@@ -84,5 +92,12 @@ public class NetworkManager : MonoBehaviour
 	{
 		Debug.Log("a player has spawned?");
 		Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+	}
+	
+	void OnPlayerDisconnected(NetworkPlayer player)
+	{
+		Debug.Log("Clean up after player " + player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
 	}
 }

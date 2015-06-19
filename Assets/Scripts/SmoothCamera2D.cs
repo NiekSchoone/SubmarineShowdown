@@ -20,8 +20,8 @@ public class SmoothCamera2D : MonoBehaviour
 
 		camera = GetComponent<Camera>();
 
-		rLimit = 1;
-		lLimit = -1;
+		rLimit = 3.5f;
+		lLimit = -3.5f;
 	}
 	
 	void Update () 
@@ -32,7 +32,7 @@ public class SmoothCamera2D : MonoBehaviour
 			Vector3 delta = target.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z)); //(new Vector3(0.5, 0.5, point.z));
 			Vector3 destination = transform.position + delta;
 			transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-			transform.position = new Vector3(Mathf.Clamp(transform.position.x, lLimit, rLimit), transform.position.y, transform.position.z);
+			transform.position = new Vector3(Mathf.Clamp(transform.position.x, lLimit, rLimit), Mathf.Clamp(transform.position.y, -1.75f, 100), transform.position.z);
 		}
 		
 	}

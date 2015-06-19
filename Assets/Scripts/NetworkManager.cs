@@ -11,13 +11,38 @@ public class NetworkManager : MonoBehaviour
 	private HostData[] hostList;
 	
 	public GameObject playerPrefab;
-	
+
+	public int idCounter;
+
+	private bool amISpawningAPlayer;
+
 	void Start()
 	{
 		MasterServer.ipAddress = "127.0.0.1";
 		MasterServer.port = 23466;
 		Network.natFacilitatorIP = "127.0.0.1";
 		Network.natFacilitatorPort = 50005;
+
+		idCounter = 0;
+
+		amISpawningAPlayer = false;
+
+		RefreshHostList();
+	}
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
+	{
+		int idCounterOut = 0;
+
+		if(stream.isWriting)
+		{
+			idCounterOut = idCounter;
+			stream.Serialize(ref idCounterOut);
+		}else
+		{
+			stream.Serialize(ref idCounterOut);
+			idCounter = idCounterOut;
+		}
 	}
 	
 	void OnGUI()
@@ -32,6 +57,12 @@ public class NetworkManager : MonoBehaviour
 			}
 			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh hosts"))
 			{
+				/*for (int i = 0; i < 255; i++) 
+				{
+					MasterServer.ipAddress = "172.17.56." + i;
+					Network.natFacilitatorIP = "172.17.56." + i;
+					RefreshHostList();
+				}*/
 				MasterServer.ipAddress = IPString;
 				Network.natFacilitatorIP = IPString;
 				Debug.Log("masterIP" + MasterServer.ipAddress);
@@ -91,7 +122,18 @@ public class NetworkManager : MonoBehaviour
 	private void SpawnPlayer()
 	{
 		Debug.Log("a player has spawned?");
-		Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+		GameObject newPlayer = Network.Instantiate(playerPrefab, new Vector3(Random.Range(-7.5f, 7), 5f, 0f), Quaternion.identity, 0) as GameObject;
+		idCounter++;
+		newPlayer.GetComponent<Player>().playerID = idCounter;
+	}
+
+	public void SpawnPlayerDelay(float delay)
+	{
+		if(amISpawningAPlayer == false)
+		{
+			Invoke("SpawnPlayer", delay);
+			amISpawningAPlayer = true;
+		}
 	}
 	
 	void OnPlayerDisconnected(NetworkPlayer player)

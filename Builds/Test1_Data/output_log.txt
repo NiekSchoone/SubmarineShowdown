@@ -1,4 +1,11 @@
-Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+Mono path[0] = 'C:/Users/niek/Documents/GitHub/SubmarineShowdown/Builds/Test1_Data/Managed'
+Mono path[1] = 'C:/Users/niek/Documents/GitHub/SubmarineShowdown/Builds/Test1_Data/Mono'
+Mono config path = 'C:/Users/niek/Documents/GitHub/SubmarineShowdown/Builds/Test1_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/niek/Documents/GitHub/SubmarineShowdown/Builds/Test1_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55075
+Multi-casting "[IP] 172.17.56.146 [Port] 55075 [Flags] 2 [Guid] 709344769 [EditorId] 3066895274 [Version] 1048832 [Id] WindowsPlayer(Niek-Laptop) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [172.17.56.146:55075]
+Initialize engine version: 5.1.0f3 (ec70b008569d)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -12,31 +19,245 @@ Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1
 Loading C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.161 seconds
+Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.055 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\System.Core.dll (this message is harmless)
-masterIP127.0.0.1
+Platform assembly: C:\Users\niek\Documents\GitHub\SubmarineShowdown\Builds\Test1_Data\Managed\System.dll (this message is harmless)
+Server is initialized
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-NetworkManager:OnGUI() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:37)
+NetworkManager:OnServerInitialized() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:86)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+NetworkManager:StartServer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:80)
+NetworkManager:OnGUI() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:54)
  
-(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 37)
-
-Server joined
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-NetworkManager:OnConnectedToServer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:69)
- 
-(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 69)
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 86)
 
 a player has spawned?
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-NetworkManager:SpawnPlayer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:93)
-NetworkManager:OnConnectedToServer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:70)
+NetworkManager:SpawnPlayer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:116)
+NetworkManager:OnServerInitialized() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:87)
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+NetworkManager:StartServer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:80)
+NetworkManager:OnGUI() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:54)
  
-(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 93)
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 116)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+a player has spawned?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+NetworkManager:SpawnPlayer() (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\NetworkManager.cs:116)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/NetworkManager.cs Line: 116)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
+
+Bitch do i even work?
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Bullet:OnCollisionEnter2D(Collision2D) (at C:\Users\niek\Documents\GitHub\SubmarineShowdown\Assets\Scripts\Bullet.cs:34)
+ 
+(Filename: C:/Users/niek/Documents/GitHub/SubmarineShowdown/Assets/Scripts/Bullet.cs Line: 34)
 

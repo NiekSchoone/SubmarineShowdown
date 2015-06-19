@@ -8,17 +8,22 @@ public class Player : MonoBehaviour
 	
 	private bool canJump;
 
-	public Rigidbody2D rb;
+	public Rigidbody2D rb2D;
 	public NetworkView nView;
+
+	public GameObject bulletPrefab;
+	public bool killMeBool = false;
 
 	private float lastSynchronizationTime = 0f;
 	private float syncDelay = 0f;
 	private float syncTime = 0f;
-	private Vector3 syncStartPosition = Vector3.zero;
-	private Vector3 syncEndPosition = Vector3.zero;
+	private Vector2 syncStartPosition = Vector2.zero;
+	private Vector2 syncEndPosition = Vector2.zero;
 
-	private SpriteRenderer sRenderer;
+	private AudioSource source;
 
+	public int playerID;
+	
 	void Awake()
 	{
 		lastSynchronizationTime = Time.time;
@@ -31,9 +36,9 @@ public class Player : MonoBehaviour
 
 		canJump = false;
 
-		rb = GetComponent<Rigidbody2D>();
+		rb2D = GetComponent<Rigidbody2D>();
 		nView = GetComponent<NetworkView>();
-		sRenderer = GetComponent<SpriteRenderer>();
+		source = GetComponent<AudioSource>();
 	}
 
 	void OnNetworkInstantiate(NetworkMessageInfo info)
@@ -41,32 +46,38 @@ public class Player : MonoBehaviour
 		if(nView.isMine)
 		{
 			Camera.main.GetComponent<SmoothCamera2D>().target = transform;
+
 		}
 	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{
-		Vector3 syncPosition = Vector3.zero;
-		Vector3 syncVelocity = Vector3.zero;
+		Vector3 syncPosition = Vector2.zero;
+		Vector3 syncVelocity = Vector2.zero;
+		bool killMeBoolOut= false;
 		if (stream.isWriting)
 		{
-			syncPosition = rb.position;
+			syncPosition = rb2D.position;
 			stream.Serialize(ref syncPosition);
-			
-			syncVelocity = rb.velocity;
+			killMeBoolOut = killMeBool;
+			stream.Serialize(ref killMeBoolOut);
+			syncVelocity = rb2D.velocity;
 			stream.Serialize(ref syncVelocity);
 		}
 		else
 		{
 			stream.Serialize(ref syncPosition);
 			stream.Serialize(ref syncVelocity);
+			stream.Serialize(ref killMeBoolOut);
+
+			killMeBool = killMeBoolOut;
 			
 			syncTime = 0f;
 			syncDelay = Time.time - lastSynchronizationTime;
 			lastSynchronizationTime = Time.time;
 			
 			syncEndPosition = syncPosition + syncVelocity * syncDelay;
-			syncStartPosition = rb.position;
+			syncStartPosition = rb2D.position;
 		}
 	}
 
@@ -75,6 +86,12 @@ public class Player : MonoBehaviour
 		if(nView.isMine)
 		{
 			Movement();
+			Shooting();
+
+			if(killMeBool)
+			{
+				KillMe(3);
+			}
 		}
 		else 
 		{
@@ -85,37 +102,64 @@ public class Player : MonoBehaviour
 	private void SyncedMovement()
 	{
 		syncTime += Time.deltaTime;
-		rb.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+		rb2D.position = Vector2.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
 
 	void Movement()
 	{
 		if(Input.GetKey(KeyCode.A))
 		{
-			transform.Translate(Vector3.left * walkForce * Time.deltaTime);
+			transform.Translate(Vector2.left * walkForce * Time.deltaTime);
 		}
 		
 		if(Input.GetKey(KeyCode.D))
 		{
-			transform.Translate(Vector3.right * walkForce * Time.deltaTime);
+			transform.Translate(Vector2.right * walkForce * Time.deltaTime);
 		}
 		
 		if(Input.GetKey(KeyCode.Space))
 		{
 			if(canJump == true)
 			{
-				rb.AddForce(new Vector2(0, jumpForce));
+				rb2D.AddForce(new Vector2(0, jumpForce));
 			}
+		}
+	}
+
+	void Shooting()
+	{
+		if(Input.GetMouseButtonDown(0))
+		{
+			Vector2 shootDirection = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+			shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+			shootDirection = shootDirection-new Vector2(transform.position.x,transform.position.y);
+			float angle = Mathf.Atan2(shootDirection.y,shootDirection.x) * Mathf.Rad2Deg - 90;
+
+			Camera.main.GetComponent<CameraShake>().Shake();
+
+			source.Play();
+
+			GameObject newBullet = Network.Instantiate(bulletPrefab, new Vector2(transform.position.x, transform.position.y) + (shootDirection.normalized / 2), Quaternion.Euler(0,0,angle), 0) as GameObject;
+			newBullet.GetComponent<Bullet>().bulletID = playerID;
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		canJump = true;
+		if (col.gameObject.tag == "floor")
+		{
+			canJump = true;
+		}
 	}
 	
 	void OnCollisionExit2D(Collision2D col)
 	{
 		canJump = false;
+	}
+
+	public void KillMe(float killDelay)
+	{
+		GameObject.FindGameObjectWithTag("nManager").GetComponent<NetworkManager>().SpawnPlayerDelay(killDelay);
+		Network.Destroy(this.gameObject);
 	}
 }

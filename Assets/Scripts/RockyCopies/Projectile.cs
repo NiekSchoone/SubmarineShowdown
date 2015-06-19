@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    Transform transform;
-    Rigidbody rb;
-    float spawnTime;
-    float destroyMeCooldown = 5f;
+    private Transform transform;
+    private Rigidbody rb;
+    private float spawnTime;
+    private float destroyMeCooldown = 5f;
     // Use this for initialization
     void Start()
     {
